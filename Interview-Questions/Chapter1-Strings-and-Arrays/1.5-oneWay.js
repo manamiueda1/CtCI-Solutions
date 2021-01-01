@@ -7,6 +7,7 @@
 // pales, pale -> true 
 // pale, bale -> true 
 // pale, bake -> false 
+
 // Hints:#23, #97, #130
 
 
