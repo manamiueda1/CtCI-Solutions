@@ -35,7 +35,7 @@ let URLify = function(str) {
         strArr[pointer] = '%';
         strArr[pointer+1] = '2';
         strArr[pointer+2] = '0';
-        console.log(strArr, strArr.length);
+        // console.log(strArr, strArr.length);
         } 
         pointer++;
     }
@@ -60,22 +60,24 @@ return convertToArray.join('');
 console.log(replaceUrlSpaces("Sai Charan P"));
 
 function url(str, len) {
-    let s = "";
+    let result = "";
     let totalSpaces = str.length - len;
     let frontSpaces = 0;
     let flag = false;
+    // if there are spaces in the front of the string, we keep moving the pointer until there is a letter
     for (let i = 0; i < str.length; i++) {
       if (flag === false) {
         if (str[i] === " ") frontSpaces++;
         else flag = true;
       }
+      // keep adding to the empty string - if the length is equal to the amount of charater length, we stop adding to the string
       if (flag === true && i < str.length - (totalSpaces - frontSpaces)) {
-        if (str[i] === " ") s += "%20";
-        else s += str[i];
+        if (str[i] === " ") result += "%20";
+        else result += str[i];
       }
     }
   
-    return s;
+    return result;
 }
   
-console.log(url("Mr John Smith   ", 13));
+console.log(url("Mr John Smith   ", 13), 'answer');

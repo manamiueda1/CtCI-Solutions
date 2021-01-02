@@ -12,8 +12,8 @@
 
 function palindromePerm (string){
     let hash = new Map()
+    // get rid of the spaces and lower case everything 
     string = string.split(' ').join('').toLowerCase()
-    console.log(string)
     for (let i = 0; i < string.length; i++){
       if (hash[string[i]] === undefined){
         hash[string[i]] = 1
