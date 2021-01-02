@@ -14,7 +14,7 @@ var compress = function(chars) {
     let left = 0
     while(left < chars.length){
         let right = left;
-        console.log(right)
+        // console.log(right)
         while(right < chars.length && chars[right] === chars[left]){
             right++
         }
@@ -30,8 +30,8 @@ var compress = function(chars) {
 return index
 }
 
-console.log('aaaaaa', compress('aaaaaa'), 'a6');
-console.log('aabcccccaaa', compress('aabcccccaaa'), 'a2b1c5a3');
+// console.log('aaaaaa', compress('aaaaaa'), 'a6');
+// console.log('aabcccccaaa', compress('aabcccccaaa'), 'a2b1c5a3');
 
 
 // GITHUB SOLUTION
@@ -43,8 +43,9 @@ var strComp = function(string) {
     var maxCount = 1;
     for (var i = 0; i < string.length; i++) {
       if (currChar !== string[i]) {
-        console.log(currChar, string[i], i);
+        // console.log(currChar, string[i], i);
         compressed = compressed + currChar + currCount;
+        console.log(compressed, 'compressed')
         maxCount = Math.max(maxCount, currCount);
         currChar = string[i];
         currCount = 1;
@@ -58,5 +59,5 @@ var strComp = function(string) {
     return maxCount === 1 ? string : compressed;
 };
 
-console.log('aaaaaa', strComp('aaaaaa'), 'a6');
+// console.log('aaaaaa', strComp('aaaaaa'), 'a6');
 console.log('aabcccccaaa', strComp('aabcccccaaa'), 'a2b1c5a3');
