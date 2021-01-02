@@ -19,20 +19,21 @@ var oneAway = function(string1, string2) {
       if (first.length !== second.length - 1) {
         return false;
       } else {
-        var mulligan = false;
-        var fP = 0; // first Pointer
-        var sP = 0; // second Pointer
-        while (fP < first.length) {
-          if (first[fP] !== second[sP]) {
-            if (mulligan) {
+        var secondChance = false;
+        var firstPointer = 0; 
+        var secondPointer = 0; 
+        while (firstPointer < first.length) {
+          if (first[firstPointer] !== second[secondPointer]) {
+            // if secondChance is true, it already means, it is missing 1 letter so we we return false
+            if (secondChance) {
               return false;
             } else {
-              mulligan = true;
-              sP++; // second length is longer
+              secondChance = true;
+              secondPointer++; // second length is longer
             }
           } else {
-            fP++;
-            sP++;
+            firstPointer++;
+            secondPointer++;
           }
         }
         return true;
@@ -43,19 +44,19 @@ var oneAway = function(string1, string2) {
       if (first.length !== second.length) {
         return false;
       } else {
-        var mulligan = false;
-        var fP = 0; // first Pointer
-        var sP = 0; // second Pointer
-        while (fP < first.length) {
-          if (first[fP] !== second[sP]) {
-            if (mulligan) {
+        var secondChance = false;
+        var firstPointer = 0; 
+        var secondPointer = 0; 
+        while (firstPointer < first.length) {
+          if (first[firstPointer] !== second[secondPointer]) {
+            if (secondChance) {
               return false; // more than one mismatch
             } else {
-              mulligan = true; // use up mulligan
+              secondChance = true; // use up secondChance
             }
           }
-          fP++;
-          sP++;
+          firstPointer++;
+          secondPointer++;
         }
         return true;
       }
@@ -71,7 +72,12 @@ var oneAway = function(string1, string2) {
     return checkOneMissing(string1, string2) || checkOneMissing(string2, string1) || checkOneDiff(string1, string2);
 };
 
-console.log(oneAway('pale', 'ple'), true);
+console.log(oneAway('pale', 'ple'), true); 
+// checkOneMissing('pale', 'ple') returns false within the first if statement 
+// checkOneMissing('ple', 'pale') secondChange determines if there is already 1 missing number or not -> returns true at the end of the first helper function
 console.log(oneAway('pales', 'pale'), true);
+// checkOneMissing('pale', 'pales') breaks out of the while loop and returns true, secondChange stays false
 console.log(oneAway('pale', 'bale'), true);
+// checkOneMissing('pale', 'bale') and checkOneMissing('bale', 'pale') both returns false within the first if statement because the lengths are the same 
+// checkOneDiff('pale', 'bale') secondChange becomes true only once 
 console.log(oneAway('pale', 'bake'), false);
