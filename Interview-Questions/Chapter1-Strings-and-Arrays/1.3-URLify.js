@@ -59,6 +59,8 @@ return convertToArray.join('');
 
 console.log(replaceUrlSpaces("Sai Charan P"));
 
+
+// IF YOU CANNOT USE BUILT IN METHODS 
 function url(str, len) {
     let result = "";
     let totalSpaces = str.length - len;

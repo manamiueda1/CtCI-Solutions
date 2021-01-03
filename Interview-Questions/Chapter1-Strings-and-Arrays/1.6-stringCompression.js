@@ -30,8 +30,8 @@ var compress = function(chars) {
 return index
 }
 
-// console.log('aaaaaa', compress('aaaaaa'), 'a6');
-// console.log('aabcccccaaa', compress('aabcccccaaa'), 'a2b1c5a3');
+console.log('aaaaaa', compress('aaaaaa'), 'a6');
+console.log('aabcccccaaa', compress('aabcccccaaa'), 'a2b1c5a3');
 
 
 // GITHUB SOLUTION
