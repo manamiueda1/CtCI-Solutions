@@ -4,18 +4,20 @@
 
 // Hints: #9, #40
 
-const LinkedList = require("../util/LinkedListX");
+const LinkedList = require("./Linked-List-Util/Linked-List-X");
 
 function removeDuplicates(list) {
-  const _set = new Set();
+  const set = new Set();
   let cur = list.head;
   let prev = null;
   while (cur) {
-    if (_set.has(cur.value)) {
-      // duplicate found
-      // de-link it from the list
-      // cur jumps next but previous stays
-      // right behind cur (as always)
+    if (set.has(cur.value)) {
+      // duplicate found!
+      // de-link it from the list 
+      // cur jumps next but previous stays by assigning prev.next to cur.next right behind cur (as always)
+      // cur is reassigned to the next node 
+      // elem.next becomes null to completely de-link it. it is not .next of any node and it's .next becomes null
+
       let elem = cur;
       prev.next = cur.next;
       cur = cur.next;
@@ -23,13 +25,13 @@ function removeDuplicates(list) {
     }
     else {
       // add to the set
-      _set.add(cur.value);
+      set.add(cur.value);
       prev = cur;
       cur = cur.next;
     }
   }
-
-  return list;
+  // return list
+  // return set
 }
 
 // quick test
@@ -37,7 +39,6 @@ let list = new LinkedList();
 for (let elem of [1, 5, 1, 6, 8, 6, 8, 8, 8, 8]) {
   list.append(elem);
 }
-
 removeDuplicates(list);
 
 console.log(list._toArray()); // [1, 5, 6, 8]
