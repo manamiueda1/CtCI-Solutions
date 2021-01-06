@@ -7,11 +7,11 @@
 
 var LinkedList = require('./Linked-List-Util/Linked-List.js');
 
-var peek = function(stack) {
+let peek = function(stack) {
   return stack[stack.length - 1];
 };
 
-var intersection = function(head1, head2) {
+let intersection = function(head1, head2) {
   var stack1 = [];
   var stack2 = [];
   
@@ -31,7 +31,7 @@ var intersection = function(head1, head2) {
   } else if (peek(stack1) !== peek(stack2)) {
     return undefined;
   } else {
-    var intersect;
+    let intersect;
     while (peek(stack1) === peek(stack2)) {
       intersect = peek(stack1);
       stack1.pop();
@@ -67,7 +67,7 @@ var c1 = new LinkedList('c1');
 
 a1.next = b1;
 b1.next = c1;
-c1.next = d;
+c1.next = h;
 
 var intersectNode = intersection(a, a1);
 

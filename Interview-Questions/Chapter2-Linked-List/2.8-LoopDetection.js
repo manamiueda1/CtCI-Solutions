@@ -11,14 +11,14 @@
 
 // Hints: #50, #69, #83, #90 
 
-var LinkedList = require('./Linked-List-Util/Linked-List.js');
+let LinkedList = require('./Linked-List-Util/Linked-List.js');
 
-var loopDetection = (head) => {
+let loopDetection = (head) => {
   // The null checking code will handle lists with no loops.
   if (!head || !head.next) return null
   
-  var hare = head
-  var tortoise = head
+  let hare = head
+  let tortoise = head
   
   do {
     hare = hare.next
@@ -40,12 +40,12 @@ var loopDetection = (head) => {
 /* TEST */
 // A -> B -> C -> D -> E -> C
 
-var a = new LinkedList();
-var b = new LinkedList();
-var c = new LinkedList();
-var d = new LinkedList();
-var e = new LinkedList();
-var f = new LinkedList();
+let a = new LinkedList();
+let b = new LinkedList();
+let c = new LinkedList();
+let d = new LinkedList();
+let e = new LinkedList();
+let f = new LinkedList();
 
 a.next = b;
 b.next = c;
@@ -56,12 +56,12 @@ f.next = c;
 
 console.log(loopDetection(a) === c, true);
 
-var A = new LinkedList();
-var B = new LinkedList();
-var C = new LinkedList();
-var D = new LinkedList();
-var E = new LinkedList();
-var F = new LinkedList();
+let A = new LinkedList();
+let B = new LinkedList();
+let C = new LinkedList();
+let D = new LinkedList();
+let E = new LinkedList();
+let F = new LinkedList();
 
 A.next = B;
 B.next = C;
