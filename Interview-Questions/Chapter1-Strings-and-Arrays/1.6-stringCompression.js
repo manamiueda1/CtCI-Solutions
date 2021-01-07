@@ -34,6 +34,21 @@ console.log('aaaaaa', compress('aaaaaa'), 'a6');
 console.log('aabcccccaaa', compress('aabcccccaaa'), 'a2b1c5a3');
 
 
+//["a","a","b","b","c","c","c"]
+//["a","2","b","2","c","3","c"]
+// char index char@index     left     char@left    right   char@right   newRight    newLeft  Count
+//   a   0       a@0           0         a@0         0        a@0          0>1
+//   a   0       a@0           0         a@0         1        a@1          1>2
+//   a   1       a@1           0         a@0         2        b@2                              '2'
+//   b   2       b@2           2         b@2         2                     2>3
+//   b   2       b@2           2         b@2         3        b@3          3>4
+//   b   3       b@3           2         b@2         4        c@4                              '2'
+//   c   4       c@4           4         c@4         4        c@4          4>5
+//   c   4       c@4           4         c@4         5        c@5          5>6
+//   c   4       c@4           4         c@4         6        c@6          6>7
+//   c   5       c@5           4         c@4         7                                         '3'
+
+
 // GITHUB SOLUTION
 
 var strComp = function(string) {
