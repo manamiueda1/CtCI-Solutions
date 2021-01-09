@@ -88,5 +88,31 @@ d.next = e;
 e.next = f;
 f.next = g;
 
+
 let newa = partition(a, 5);
 printList(newa);
+
+// Leetcode solution
+
+var partition = function(head, x) {
+    let left = new ListNode()
+    let right = new ListNode()
+    let currentHead = head
+    let leftHead = left
+    let rightHead = right
+    
+    while (currentHead){
+       if (currentHead.val < x){
+           left.next = new ListNode(currentHead.val)
+           left = left.next
+       } else {
+           right.next = new ListNode(currentHead.val)
+           right = right.next
+       }
+        currentHead = currentHead.next
+    }
+    
+    left.next = rightHead.next
+    return leftHead.next
+    
+};
